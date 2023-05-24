@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const Shape = require("./lib/shapes.js");
+const { Square, Circle, Triangle} = require("./lib/shapes.js");
 
 const questions = [
 	{
@@ -28,22 +28,20 @@ const questions = [
 
 function init() {
     inquirer.prompt(questions).then((answers) => {
-        const shape = new Shape(300, 200, answers.initials, answers['text-color'], answers['shape-color']);
-
-        let shapeSvg = '';
+        let shape;
         switch(answers['shape-selector']) {
             case 'Square':
-                shapeSvg = shape.square();
+                shape = new Square(300, 200, answers.initials, answers['text-color'], answers['shape-color']);
                 break;
             case 'Triangle':
-                shapeSvg = shape.triangle();
+                shape = new Triangle(300, 200, answers.initials, answers['text-color'], answers['shape-color']);
                 break;
             case 'Circle':
-                shapeSvg = shape.circle();
+                shape = new Circle(300, 200, answers.initials, answers['text-color'], answers['shape-color']);
                 break;
         }
 
-        const svgContent = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">${shapeSvg}</svg>`;
+        const svgContent = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">${shape.render()}</svg>`;
         fs.writeFile('logo.svg', svgContent, (err) => {
             if (err) {
                 console.error(err);
