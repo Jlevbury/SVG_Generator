@@ -24,6 +24,11 @@ If dependencies listed in the package.json file have not been locally installed,
 
 ## Usage
 Enter the command "node index.js" to initialize the inquirer prompt to begin entering the specifics of your logo design. once all criteria has been entered, a svg file will be generated.
+Link to usage video https://drive.google.com/file/d/1prVdZDzsbqbshY9XZeqik3H6cdLwJQHg/view
+
+A view of the prompted questions and generated SVG.
+![Screenshot (98)](https://github.com/Jlevbury/SVG_Generator/assets/125767916/386963b5-9ca2-4832-a70f-3b220cfa47bd)
+![Screenshot (99)](https://github.com/Jlevbury/SVG_Generator/assets/125767916/57013928-336d-4df1-9dea-5e1806bd8667)
 
 ## License
 
